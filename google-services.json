@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "925529678828",
+    "project_id": "hey-yall-cb4f7",
+    "storage_bucket": "hey-yall-cb4f7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925529678828:android:165627393e0ee485d016c9",
+        "android_client_info": {
+          "package_name": "com.scorpus.HeyYallNativeExpo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs3bQ0INxTWtKM6TKF3x3dEMczjWqOiQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

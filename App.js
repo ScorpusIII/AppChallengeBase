@@ -4,8 +4,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { TamaguiProvider, View, getConfig } from '@tamagui/core';
 
-import config from './tamagui.config';
-import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen';
+// import config from './tamagui.config';
+import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen2';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -38,6 +38,7 @@ export default function App() {
 
     const onLayoutRootView = useCallback(async () => {
         if (appIsReady) {
+            console.log('App is ready, hiding splash screen...');
             await SplashScreen.hideAsync();
         }
     }, [appIsReady]);
