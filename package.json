@@ -10,11 +10,18 @@
     "test": "jest --watchAll",
     "lint": "eslint ."
   },
+  "expo": {
+    "splash": {
+      "image": "./assets/icons/yall_logo.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#003256"
+    }
+  },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "expo": "~50.0.4",
     "expo-font": "~11.10.2",
-    "expo-splash-screen": "~0.26.4",
+    "expo-splash-screen": "~0.29.24",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
