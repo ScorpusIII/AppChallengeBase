@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./app/assets/icons/yall_logo.png",
-      "resizeMode": "cover",
+      "resizeMode": "contain",
       "backgroundColor": "#003256"
     },
     "assetBundlePatterns": [
