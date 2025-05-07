@@ -1,13 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
+// import { TamaguiProvider, View } from '@tamagui/core'
+// import config from './tamagui.config'
+
+import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-    const [appIsReady, setAppIsReady] = useState(false);
 
     useEffect(() => {
         async function prepare() {
@@ -19,33 +22,21 @@ export default function App() {
                 });
 
                 // Artificial delay for splash screen demonstration
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                // await new Promise(resolve => setTimeout(resolve, 2000));
+                await SplashScreen.hideAsync();
 
             } catch (e) {
                 console.warn('Error loading assets:', e);
-            } finally {
-                setAppIsReady(true);
             }
         }
 
         prepare();
     }, []);
 
-    const onLayoutRootView = useCallback(async() => {
-        if (appIsReady) {
-            await SplashScreen.hideAsync();
-        }
-    }, [appIsReady]);
-
-    if (!appIsReady) {
-        return null;
-    }
-
     return (
-        <View style={styles.container} onLayout={onLayoutRootView}>
-            <Text style={styles.title}>Y'all App Challenge</Text>
-            <Text style={styles.subtitle}>Implement the app based on the challenge requirements</Text>
-        </View>
+        // <TamaguiProvider config={config}>
+            <EnterPhoneScreen />
+        // </TamaguiProvider>
     );
 }
 
@@ -54,7 +45,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F4777A',
+        backgroundColor: '#003256',
     },
     title: {
         fontSize: 24,

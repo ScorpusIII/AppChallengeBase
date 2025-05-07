@@ -4,11 +4,14 @@
     "slug": "HeyYallNativeExpo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./app/assets/icons/yall_logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "splash": {
-      "backgroundColor": "#F4777A"
+      "image": "./app/assets/icons/yall_logo.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#003256"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#F4777A"
+        "backgroundColor": "#003256"
       },
       "package": "com.scorpus.HeyYallNativeExpo"
     },
