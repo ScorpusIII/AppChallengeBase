@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import { TamaguiProvider, View, getConfig } from '@tamagui/core';
+// import { TamaguiProvider, View, getConfig } from '@tamagui/core';
 
 // import config from './tamagui.config';
 import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen2';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
-console.log(`config is`, getConfig());
+// console.log(`config is`, getConfig());
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -21,10 +21,16 @@ export default function App() {
                 await Font.loadAsync({
                     'Montserrat': require('./app/assets/fonts/Montserrat.ttf'),
                     'Montserrat-Bold': require('./app/assets/fonts/Montserrat-Bold.ttf'),
+                    'Montserrat-Light': require('./app/assets/fonts/Montserrat-Light.ttf'),
+                    'Montserrat-Medium': require('./app/assets/fonts/Montserrat-Medium.ttf'),
+                    'Montserrat-SemiBold': require('./app/assets/fonts/Montserrat-SemiBold.ttf'),
+                    'Obviously-Black': require('./app/assets/fonts/Obviously-Black.otf'),
+                    'Obviously-Bold': require('./app/assets/fonts/Obviously-Bold.otf'),
+                    'Obviously-Medium': require('./app/assets/fonts/Obviously-Medium.otf'),
+                    'Obviously-Semibold': require('./app/assets/fonts/Obviously-Semibold.otf'),
+                    'Obviously': require('./app/assets/fonts/Obviously.otf'),
+                    'Gill-Sans': require('./app/assets/fonts/Gill-Sans.otf'),
                 });
-
-                // Artificial delay for splash screen demonstration
-                // await new Promise(resolve => setTimeout(resolve, 2000));
 
             } catch (e) {
                 console.warn('Error loading assets:', e);
@@ -38,7 +44,6 @@ export default function App() {
 
     const onLayoutRootView = useCallback(async () => {
         if (appIsReady) {
-            console.log('App is ready, hiding splash screen...');
             await SplashScreen.hideAsync();
         }
     }, [appIsReady]);
@@ -48,31 +53,17 @@ export default function App() {
     }
 
     return (
-        <TamaguiProvider config={config}>
-            <View style={styles.container} onLayout={onLayoutRootView}>
-                <EnterPhoneScreen />
-            </View>
-        </TamaguiProvider>
+        // <TamaguiProvider config={config}>
+        <View style={styles.container} onLayout={onLayoutRootView}>
+            <EnterPhoneScreen />
+        </View>
+        // </TamaguiProvider>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#003256',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        marginBottom: 12,
-    },
-    subtitle: {
-        fontSize: 16,
-        color: '#FFFFFF',
-        textAlign: 'center',
-        paddingHorizontal: 20,
     }
 });
