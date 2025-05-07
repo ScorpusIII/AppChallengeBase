@@ -5,7 +5,7 @@ import * as Font from 'expo-font';
 // import { TamaguiProvider, View, getConfig } from '@tamagui/core';
 
 // import config from './tamagui.config';
-import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen2';
+import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();

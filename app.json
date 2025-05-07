@@ -31,7 +31,9 @@
       "output": "static"
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "@react-native-firebase/app", 
+      "@react-native-firebase/auth"
     ]
   }
 }
