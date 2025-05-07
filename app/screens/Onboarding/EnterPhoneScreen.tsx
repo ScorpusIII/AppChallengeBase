@@ -1,4 +1,3 @@
-import { Ionicons } from '@expo/vector-icons'
 import React, { useState, useEffect } from 'react'
 import {
     View,
@@ -8,7 +7,6 @@ import {
     SafeAreaView,
     Linking,
     TextInput,
-    Button,
     ActivityIndicator
 } from 'react-native'
 import { auth } from "../../../firebaseConfig";
@@ -57,10 +55,6 @@ const EnterPhoneScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => console.log('Back button pressed')}>
-                <Ionicons name="chevron-back" style={styles.backArrow} size={16} color={'white'} />
-            </TouchableOpacity>
-
             <View style={styles.content}>
                 <Text style={styles.title}>What's Your #?</Text>
 
@@ -107,6 +101,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: 'white',
         fontWeight: '500',
+        marginTop: 100,
         marginBottom: 15,
         marginLeft: 20,
         fontFamily: 'Obviously',
