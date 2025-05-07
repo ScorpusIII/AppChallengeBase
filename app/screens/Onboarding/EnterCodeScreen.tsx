@@ -30,7 +30,7 @@ import { Props } from '../../../types';
 
 const EnterCodeScreen = ({route}: Props) => {
 
-    const [phone, setPhone] = useState(route.params.phone); // Default phone number
+    const [phone, setPhone] = useState("route.params.phone"); // Default phone number
     // If null, no SMS has been sent
     const [confirm, setConfirm] = useState<ConfirmationResult>();
     // verification code (OTP - One-Time-Passcode)
