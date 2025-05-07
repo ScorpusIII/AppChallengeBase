@@ -21,15 +21,16 @@ import {
     SafeAreaView,
     Linking,
     TextInput,
-    Button,
     ActivityIndicator
 } from 'react-native'
 import { auth } from "../../../firebaseConfig";
+import { useNavigation } from '@react-navigation/native';
 import { signInWithPhoneNumber, onAuthStateChanged, ConfirmationResult } from "firebase/auth";
+import { Props } from '../../../types';
 
-const EnterCodeScreen = () => {
+const EnterCodeScreen = ({route}: Props) => {
 
-    const [phone, setPhone] = useState(''); // Default phone number
+    const [phone, setPhone] = useState(route.params.phone); // Default phone number
     // If null, no SMS has been sent
     const [confirm, setConfirm] = useState<ConfirmationResult>();
     // verification code (OTP - One-Time-Passcode)

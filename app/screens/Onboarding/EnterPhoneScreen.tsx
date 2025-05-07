@@ -1,3 +1,18 @@
+/**
+ * Enter Phone Screen
+ * 
+ * TODO: Implement the screen where users enter their phone number
+ * for verification.
+ * 
+ * Requirements:
+ * - Create a UI for entering a phone number
+ * - Implement phone number validation
+ * - Handle submission and potential errors
+ * - Navigate to the code verification screen
+ */
+
+  // Your implementation here
+
 import React, { useState, useEffect } from 'react'
 import {
     View,
@@ -11,15 +26,22 @@ import {
 } from 'react-native'
 import { auth } from "../../../firebaseConfig";
 import { signInWithPhoneNumber, onAuthStateChanged, ConfirmationResult } from "firebase/auth";
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../../types';
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'EnterPhone'>;
 
 const EnterPhoneScreen = () => {
 
-    const [phone, setPhone] = useState(''); // Default phone number
+    const [phone, setPhone] = useState('');
     // If null, no SMS has been sent
     const [confirm, setConfirm] = useState<ConfirmationResult>();
     // verification code (OTP - One-Time-Passcode)
     const [code, setCode] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const navigation = useNavigation<NavigationProp>();
 
     useEffect(() => {
         const subscriber = onAuthStateChanged(auth, handleAuthStateChanged);
@@ -38,8 +60,14 @@ const EnterPhoneScreen = () => {
         try {
             if (confirm)
                 await confirm.confirm(code);
+            // If the code is valid, the user will be signed in and you can navigate to the next screen
+            // For example, you can use navigation.navigate('NextScreen') here
+            setLoading(false);
+            navigation.navigate('EnterCode', { phone });
+
         } catch (error) {
             console.log('Invalid code.');
+            setLoading(false);
         }
     }
 
