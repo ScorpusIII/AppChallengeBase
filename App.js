@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-// import { TamaguiProvider, View } from '@tamagui/core'
-// import config from './tamagui.config'
+import { TamaguiProvider, View, getConfig } from '@tamagui/core';
 
+import config from './tamagui.config';
 import EnterPhoneScreen from './app/screens/Onboarding/EnterPhoneScreen';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
+console.log(`config is`, getConfig());
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -23,7 +24,7 @@ export default function App() {
                 });
 
                 // Artificial delay for splash screen demonstration
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                // await new Promise(resolve => setTimeout(resolve, 2000));
 
             } catch (e) {
                 console.warn('Error loading assets:', e);
@@ -46,11 +47,11 @@ export default function App() {
     }
 
     return (
-        // <TamaguiProvider config={config}>
-        <View style={styles.container} onLayout={onLayoutRootView}>
-            <EnterPhoneScreen />
-        </View>
-        // </TamaguiProvider>
+        <TamaguiProvider config={config}>
+            <View style={styles.container} onLayout={onLayoutRootView}>
+                <EnterPhoneScreen />
+            </View>
+        </TamaguiProvider>
     );
 }
 

@@ -45,10 +45,10 @@ export const config = createTamagui({
 })
 
 // in other files use this:
-console.log(`config is`, getConfig())
+// console.log(`config is`, getConfig())
 
 // get typescript types on @tamagui/core imports:
 type AppConfig = typeof config
 declare module '@tamagui/core' {
-  interface TamaguiCustomConfig extends AppConfig {}
+  interface TamaguiCustomConfig extends AppConfig { }
 }
